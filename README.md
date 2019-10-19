@@ -10,11 +10,13 @@ You will find results of how the features generated could give better insights t
 ### How do the features perform ?
 
 TLDR: my own results
-> By using a slight variation of this, I was able to correctly predict 2 times a group of 3 balls (out of 10) of [Trio Magic](https://jeux.loro.ch/games/magic3) that contained the drawn middle number (2018). Thanks to that lottery earnings distribution, I was able to play tickets with all three numbers whithout ever loosing money. Basically, 1 winning ticket out of 3 was sufficient to *break even* (my goal). Better yet I still had a chance to win the jackpot.
+> By using a *slight variation of this*, I was able to correctly predict 2 times a group of 3 balls (out of 10) of [Trio Magic](https://jeux.loro.ch/games/magic3) that contained the drawn middle number (2018). Thanks to that lottery earnings distribution, I was able to play tickets with all three numbers whithout ever loosing money. Basically, 1 winning ticket out of 3 was sufficient to *break even* (my goal). Better yet I still had a chance to win the jackpot.
 > 
 > In order to *play all combinations offered by the prediction* and claim the jackpot, I had to play roughly 300 tickets (that would have netted to 0 loss). Unfortunately, my student self was short on time (and $).
 > 
 > Other thing to note, I only played when the features were *all pointing* toward the given output. Such convergence of features only happened rarely. They occured in a 3-4 months interval the two times I played.
+> 
+> Other note, I tried a 3rd time to predict 3 numbers to see if it could be a generalized working winning algorithm (that time I did not buy any ticket, just checking prediction) but it failed. So current success rate is 2 / 3.
 
 
 **Theoretical results**
