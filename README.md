@@ -16,7 +16,7 @@ TLDR: my own results
 > 
 > Other thing to note, I only played when the features were *all pointing* toward the given output. Such convergence of features only happened rarely. They occured in a 3-4 months interval the two times I played.
 > 
-> Other note, I tried a 3rd time to predict 3 numbers to see if it could be a generalized working winning algorithm (that time I did not buy any ticket, just checking prediction) but it failed. So current success rate is 2 / 3.
+> Other note, I tried a 3rd time to predict 3 numbers to see if the probabilities in such a convergence of feature would be exploitable / be generalized (my scientific side got carried). That time I did not buy any ticket (just checking prediction) but it failed. So I left that at the current success rate of 2 / 3.
 
 
 **Theoretical results**
