@@ -56,6 +56,50 @@ All in all, these graphs and results show that some features could be meaningful
 
 
 
+###Installation / running
+
+This repo is a specific snapshot of another project. On its own, it aims to generate features that are aimed to be used by a data scientist.
+
+#### Installation
+
+```bash
+# if it fails/complains because of an
+pip install -r requirements.txt
+
+# this will install the latest version of a helper library.
+pip install -U git+https://github.com/JeffMv/jmm-util-libs.git@releases
+# It should be backwards compatbile with this project, but if it isn't for some reason, you can always:
+# pip install -U git+https://github.com/JeffMv/jmm-util-libs.git@v0.1.2.8.4
+```
+
+
+
+#### Running
+
+Included data are from the [*triomagic* lottery](https://jeux.loro.ch/games/magic3/results), which is a pick 1 out of 10 balls for each column lottery. You could substitute this dataset with one of a lottery with similar settings (pick 1 out of 10 for each column) and it would generate the features.
+
+The graphs in the repo were generated with the such a setting. Especially, it used the `univ-length-over10.tsv` file, which is based on analyzing the number of different numbers that appeared in the last frame of 10 draws.
+
+```python
+python eulolib/featuresUpdater.py --makeFeatures --gameId=triomagic --draws="data/example-inputs/TrioMagic-results.txt" --saveDir="triomagic"
+# it writes in the input directory under the subfolder "triomagic"
+```
+
+The generated folders are for each different column. You can remove the top 2 lines under the header of `univ-length-over10.tsv` and feed the file to an auto-model solution like RapidMiner's AutoModel to get the same kind of graphs that are shown in this repo.
+
+
+
+
+
 ### Contact / Contributing
 
 *Feal free to open an issue* if you have any questions or to contact me regarding this project.
+
+
+
+### License
+
+[CC-BY-NC](https://creativecommons.org/licenses/by-nc/2.0/)
+
+
+

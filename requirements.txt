@@ -1,10 +1,14 @@
-numpy>=1.14.2
-pyinterval>=1.2.0
+numpy==1.14.2
+pyinterval==1.2.0
+pandas==0.19.2
+scikit-learn==0.18.1
+scipy==1.0.0
 requests>=2.18.4
-pandas>=0.19.2
-scikit-learn>=0.18.1
-beautifulsoup4>=4.6.0
-bs4>=0.0.1
+beautifulsoup4==4.6.0
+bs4==0.0.1
 
 # -e git://github.com/JeffMv/jmm-util-libs.git@releases [parsing]
--e git://github.com/JeffMv/jmm-util-libs.git@v0.1.2.8.4 [parsing]
+# -e git://github.com/JeffMv/jmm-util-libs.git@v0.1.2.8.4 [parsing]
+# if the above fails, comment it out and uncomment the following. It should install more than requiered but you should be able to run the project
+#-e git://github.com/JeffMv/jmm-util-libs.git@v0.1.2.8.4
+# or you can run: pip install -U git+https://github.com/JeffMv/jmm-util-libs.git@releases

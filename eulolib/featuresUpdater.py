@@ -74,7 +74,6 @@ import pandas as pd
 import sklearn
 
 # from matplotlib import pyplot as plt
-from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import (accuracy_score, classification_report,
                              confusion_matrix)
@@ -83,11 +82,18 @@ from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from sklearn.neural_network import MLPClassifier, MLPRegressor
 from sklearn import linear_model
 from sklearn import neighbors
+try:
+    from sklearn.model_selection import train_test_split
+except ImportError as err:
+    train_test_split = None
+    print("Import error for train_test_split: {}".format(err))
+    pass
 
 from jmm import *
 from jmm.soups import *
 from eulolib import drawsfileUpdater as dfu
 from eulolib import computations as cpt
+from eulolib.core import Rule, Draws
 
 #from sklearn.ensemble import ExtraTreesClassifier
 # Build a forest and compute the feature importances
@@ -413,10 +419,6 @@ class Utils(object):
     @classmethod
     def isMatrixLike(cls, elmt):
         return cls.isMatrix(elmt) or isinstance(elmt, np.ndarray)
-    
-
-
-from .core import Rule, Draws
 
 
 class Settings(object):
