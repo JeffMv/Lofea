@@ -87,7 +87,19 @@ python eulolib/featuresUpdater.py --makeFeatures --gameId=triomagic --draws="dat
 
 The generated folders are for each different column. You can remove the top 2 lines under the header of `univ-length-over10.tsv` and feed the file to an auto-model solution like RapidMiner's AutoModel to get the same kind of graphs that are shown in this repo.
 
+**IMPORTANT NOTE:**
 
+The other files named `univ-ecarts-over10-andSupa20.tsv`, `univ-effectifs-over10-andSupa20.tsv` or `univ-parity-over10.tsv` are on development so do not use them. I only created them as a *stub* for extending further. The only usable computated file are those called `univ-length-over10.tsv`.
+
+
+
+### Computed data
+
+Files named `univ-length-over10.tsv` contain computed features (based on draw history) for use in a machine learning algorithms.
+
+The columns `targetTrend` and those starting with `pred...` (like `pred2ndNext` are potential target `y` values you can use). They each represent an axis you can choose to tackle the problem.
+
+The columns starting with `feat-...` are columns containing computed features. You may try using them if you believe there are patterns.
 
 
 
