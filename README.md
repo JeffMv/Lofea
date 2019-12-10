@@ -52,11 +52,16 @@ So such features would be deemed irrelevant when trying to predict that output.
 
 All in all, these graphs and results show that some features could be meaningfull when trying to predict whether or not the *universe length* would increase (which would point us to a group of symbols we might prefer to play for higher probabilities of winning).
 
-**See the [example's README](examples/RapidMiner-featuresUpdater-Ulen-willIncrease-prediction/README.md) for more explainations**.
+**See the [example's README](examples/RapidMiner-featuresUpdater-Ulen-willIncrease-prediction/README.md) for more explanations**.
+
+Also, you can have a look at this discussion about the features and how we might want to use them.
+![Discussion about the statistical significance of a probability distribution.](insights-discussions/Featutres-measures--annotated.png)
+
+*PS: If you are a major in statistics/probability, I'd really appreciate some feed-back about the above annotated graph.*
 
 
 
-###Installation / running
+### Installation / running
 
 This repo is a specific snapshot of another project. On its own, it aims to generate features that are aimed to be used by a data scientist.
 
@@ -80,7 +85,7 @@ Included data are from the [*triomagic* lottery](https://jeux.loro.ch/games/magi
 
 The graphs in the repo were generated with the such a setting. Especially, it used the `univ-length-over10.tsv` file, which is based on analyzing the number of different numbers that appeared in the last frame of 10 draws.
 
-```python
+```bash
 python eulolib/featuresUpdater.py --makeFeatures --gameId=triomagic --draws="data/example-inputs/TrioMagic-results.txt" --saveDir="triomagic"
 # it writes in the input directory under the subfolder "triomagic"
 ```
