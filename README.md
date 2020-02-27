@@ -16,7 +16,7 @@ TLDR: my own results
 > 
 > Other thing to note, I only played when the features were *all pointing* toward the given output. Such convergence of features only happened rarely. They occured in a 3-4 months interval the two times I played.
 > 
-> Other note, I tried a 3rd time to predict 3 numbers to see if the probabilities in such a convergence of feature would be exploitable / be generalized (my scientific side got carried). That time I did not buy any ticket (just checking prediction) but it failed. So I left that at the current success rate of 2 / 3.
+> Other note, I tried a 3rd time to predict 3 numbers to see if the probabilities in such a convergence of feature would be exploitable / be generalized (my scientific side got carried). That time I did not buy any ticket (just checking prediction) but it failed. So I left that at the success rate of 2 / 3.
 
 
 **Theoretical results**
@@ -100,9 +100,11 @@ The other files named `univ-ecarts-over10-andSupa20.tsv`, `univ-effectifs-over10
 
 ### Computed data
 
-Files named `univ-length-over10.tsv` contain computed features (based on draw history) for use in a machine learning algorithms.
+**Learning algorithms / Supervised learning**
 
-The columns `targetTrend` and those starting with `pred...` (like `pred2ndNext` are potential target `y` values you can use). They each represent an axis you can choose to tackle the problem.
+Files named `univ-length-over10.tsv` contain computed features (based on draw history) and labels for use in supervised learning algorithms.
+
+The columns `targetTrend` and those starting with `pred...` (like `pred2ndNext`) are potential labels for a supervised learning algorithm. They each represent a way you can choose to tackle the problem. These axis can include choosing between Regression (like column `targetTrend`) *vs* Classification, predicting the next value *vs* predicting if a `y` value will appear within the next `n` draws. Another approach might be trying to predict the next value of one of the computed features (column `predWillFollowIncreaseCapacity`).
 
 The columns starting with `feat-...` are columns containing computed features. You may try using them if you believe there are patterns.
 
