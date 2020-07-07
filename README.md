@@ -120,5 +120,5 @@ The columns starting with `feat-...` are columns containing computed features. Y
 
 [CC-BY-NC](https://creativecommons.org/licenses/by-nc/2.0/)
 
-
+You may contact the [original author](https://github.com/JeffMv) for other licensing options.
 
