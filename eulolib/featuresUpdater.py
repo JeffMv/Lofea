@@ -1239,8 +1239,8 @@ def mainMakeFeatures(gameId, filepath, saveDirectory=''):
         draws, drawIds, dates, ddates = Draws.load(gameId, '\t', filepath=filepath)
         tmp = Draws.split(draws, gameId, asMatrix=True)
         args = list(tmp) # tuple to list
-        # fnames = ['col-gauche/', 'col-milieu/', 'col-droite/']
-        fnames = ['col-'+str(i+1)+"/" for i,_ in enumerate(args)]
+        # fnames = ['col-gauche', 'col-milieu', 'col-droite']
+        fnames = ['col-'+str(i+1) for i,_ in enumerate(args)]
         
         
         for i in range(0,len(args)):
@@ -1271,7 +1271,7 @@ def mainMakeFeatures(gameId, filepath, saveDirectory=''):
             content = setting.measuresValuesAsCSV(sep, header, None, ulenPredsTrend, ulenPreds2, ulenPreds1, tWillFollowIncreaseCapacity, relatedIdsUlen, lengths, didFollowIncreaseCapacity, lastMovingDirections, moveBalances, previousLastMovingDirections, largerMoveBalances, lenSameValsSerie, lenGreaterValsSerie, lenLowerValsSerie, possIncreases, possDecreases, meanEffsIn, meanEffsOut, medEffsIn, medEffsOut)
             
             baseDir = os.path.join(setting.baseSaveDir, saveDirectory)
-            fname = fnames[i] + 'univ-length-over10' + '.tsv'
+            fname = os.path.join(fnames[i], 'univ-length-over10' + '.tsv')
             fpath = os.path.join(baseDir, fname)
             
             print("Saving to:", fpath)
@@ -1286,7 +1286,7 @@ def mainMakeFeatures(gameId, filepath, saveDirectory=''):
             content = setting.measuresValuesAsCSV(sep, header, None, parityPred2, parityPred1, relatedIdsParity, evenCounts, evenPossIncreases, oddPossDrecreases)
             
             baseDir = os.path.join(setting.baseSaveDir, saveDirectory)
-            fname = fnames[i] + 'univ-parity-over10' + '.tsv'
+            fname = os.path.join(fnames[i], 'univ-parity-over10' + '.tsv')
             fpath = os.path.join(baseDir, fname)
             
             print("Saving to:", fpath)
@@ -1302,7 +1302,7 @@ def mainMakeFeatures(gameId, filepath, saveDirectory=''):
             content = setting.measuresValuesAsCSV(sep, header, None, effectifPred2, effectifPred1, relatedIdsEffectif, medianEffsOfOutputs, meanEffsIn, meanEffsOut, medEffsIn, medEffsOut)
             
             baseDir = os.path.join(setting.baseSaveDir, saveDirectory)
-            fname = fnames[i] + 'univ-effectifs-over10-andSupa20' + '.tsv'
+            fname = os.path.join(fnames[i], 'univ-effectifs-over10-andSupa20' + '.tsv')
             fpath = os.path.join(baseDir, fname)
             
             print("Saving to:", fpath)
@@ -1318,7 +1318,7 @@ def mainMakeFeatures(gameId, filepath, saveDirectory=''):
             content = setting.measuresValuesAsCSV(sep, header, None, effectifPred2, effectifPred1, relatedIdsEffectif, medianEffsOfOutputs, meanEffsIn, meanEffsOut, medEffsIn, medEffsOut)
             
             baseDir = os.path.join(setting.baseSaveDir, saveDirectory)
-            fname = fnames[i] + 'univ-ecarts-over10-andSupa20' + '.tsv'
+            fname = os.path.join(fnames[i], 'univ-ecarts-over10-andSupa20' + '.tsv')
             fpath = os.path.join(baseDir, fname)
             
             print("Saving to:", fpath)
@@ -1337,7 +1337,7 @@ def mainMakeFeatures(gameId, filepath, saveDirectory=''):
             # content = setting.measuresValuesAsCSV(sep, header, ulenPredsTrend, ulenPreds2, ulenPreds1, relatedIdsUlen, lengths, lenSameValsSerie, lenGreaterValsSerie, lenLowerValsSerie, possIncreases, possDecreases, medEffsOut)
             
             # baseDir = os.path.join(setting.baseSaveDir, saveDirectory)
-            # fname = fnames[i] + 'combined-features-over10-andSupa20' + '.tsv'
+            # fname = os.path.join(fnames[i], 'combined-features-over10-andSupa20' + '.tsv')
             # fpath = os.path.join(baseDir, fname)
             
             # print("Saving to:", fpath)
