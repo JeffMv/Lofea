@@ -1,11 +1,11 @@
-numpy==1.14.2
-pyinterval==1.2.0
-pandas==0.19.2
-scikit-learn==0.18.1
-scipy==1.0.0
+numpy>=1.14.2
+pyinterval>=1.2.0,~=1.2.0
+pandas>=0.19.2
+scikit-learn>=0.18.1
+#scipy==1.0.0
 requests>=2.18.4
-beautifulsoup4==4.6.0
-bs4==0.0.1
+beautifulsoup4>=4.6.0
+bs4>=0.0.1
 
 # -e git://github.com/JeffMv/jmm-util-libs.git@releases [parsing]
 # -e git://github.com/JeffMv/jmm-util-libs.git@v0.1.2.8.4 [parsing]
