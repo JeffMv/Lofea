@@ -68,13 +68,11 @@ This repo is a specific snapshot of another project. On its own, it aims to gene
 #### Installation
 
 ```bash
-# if it fails/complains because of an
+# Installs required Python Pip packages
 pip install -r requirements.txt
 
-# this will install the latest version of a helper library.
-pip install -U git+https://github.com/JeffMv/jmm-util-libs.git@releases
-# It should be backwards compatbile with this project, but if it isn't for some reason, you can always:
-# pip install -U git+https://github.com/JeffMv/jmm-util-libs.git@v0.1.2.8.4
+# Install a custom helper library
+pip install -U git+https://github.com/JeffMv/jmm-util-libs.git@v0.1.2.9.0
 ```
 
 
