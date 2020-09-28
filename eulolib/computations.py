@@ -7,7 +7,10 @@ import math
 
 from eulolib import featuresUpdater as ftu
 import numpy as np
-from interval import interval # PyInterval
+try:
+    from interval import interval # PyInterval
+except:
+    interval = None
 
 import jmm.divers
 import jmm.octave
