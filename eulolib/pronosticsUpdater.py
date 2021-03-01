@@ -74,6 +74,7 @@ def fetchPronosticsForPronomillionsCom(numberOfDaysToFetch, newestDate=None, dir
         pass
     pass
 
+
 def fetchPronosticsForSecretsDuJeuCom():
     """fetch pronostics currently showed
     """
@@ -122,26 +123,6 @@ def arg_parser():
     parser = argparse.ArgumentParser(description="Pronostics page fetcher")
     parser.add_argument('-n', type=int, default=30, help="Fetch the pronostics for the last $N draws (if not already fetched). Default: 50")
     return parser
-    
-def argParser():
-    """Creates the argument parser of the program.
-    """
-    import argparse
-    parser = argparse.ArgumentParser( #prog="""Set maker""", 
-        description="""Data fetching"""
-        # description="""Data fetching""",
-        # epilog="""Example of use: program -i """
-        )
-    #
-    # parser.add_argument('--convertUsersJsonToCSV','--json2csv', action='store_true', help="Convert a '_users.json' file into a csv (for better use in machine learning platform)")
-    # parser.add_argument("-f","--filepath", type=str, help="Input filepath")
-    # parser.add_argument("-o","--outputFilepath", type=str, help="Output filepath. Defaults to stdout")
-    # parser.add_argument("-s","--sep", type=str, help="Separator")
-    # parser.add_argument('--bar', action='store_false')    
-    # parser.add_argument("content", nargs='*', help="the values you want to make a set of")
-    #
-    return parser
-
 
 
 if __name__=="__main__":

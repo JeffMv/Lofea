@@ -1,6 +1,9 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+"""
 import sklearn
 
-# from matplotlib import pyplot as plt
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import (accuracy_score, classification_report,
                              confusion_matrix)
@@ -16,17 +19,8 @@ except ImportError as err:
     print("Import error for train_test_split: {}".format(err))
     pass
 
-# from jmm import *
-# from jmm.soups import *
-# from eulolib import drawsfileUpdater as dfu
-# from eulolib import computations as cpt
-# from eulolib.core import Rule, Draws
 
-#from sklearn.ensemble import ExtraTreesClassifier
-# Build a forest and compute the feature importances
-#forest = ExtraTreesClassifier(n_estimators=250,
-#                              random_state=0)
-
+from .core import Rule
 
 
 #######################  Helpers  ############################
@@ -141,9 +135,6 @@ def bestParametersForModel(modelClass, variableParameter, xtrain, ytrain, xtest,
         print()
 
     if returnDataForPlot:
-        # plt.plot(valuesToTryOut, scores)
-        # plt.show()
-        # print()
         tmp = (valuesToTryOut, scores)
         return bestModel, bestScore, bestParams, tmp
     
