@@ -313,10 +313,10 @@ def applyStrategySuccessiveGaps(drawsMatrix, universe, frameLength, excludeHighe
     #tmpGaps = octave.concatenateCellColumns(tmpGapsPerColumns) 
     #print("tmpGapsPerColumns:",tmpGapsPerColumns)
     
-    # determiner les symboles que je vais tenter d'exclure
-    #     ils se trouvent dans la zone des récents
+    # determine symboles I want to exclude
+    #   they are in the recent zone
     
-    # calculer tous les écarts sur cette frame
+    # compute all the gaps over this frame
     
     favoriteSymbols = []
     excludedSymbols = [] # ...
@@ -327,7 +327,6 @@ def applyStrategySuccessiveGaps(drawsMatrix, universe, frameLength, excludeHighe
     for i, gaps in enumerate(tmpGapsPerColumns[0]):
         symbol = universe.flatten()[i]
         gaps = np.matrix( [[gaps]] ) if isinstance(gaps, float) else gaps
-        #print("gaps:", gaps)
 
         lastRepeatedGap, lastRepLength, _,_ = ftu.seriesDeValeursDansVecteur( gaps[0], stopAfterSerie=2 )
                 
@@ -352,9 +351,7 @@ def applyStrategySuccessiveGaps(drawsMatrix, universe, frameLength, excludeHighe
         else:
             meetsLowGapCriteria = hadLowGapRecently_butNotContinually
             meetsPotentialGreatGapCriteria = (hasFirstLevelPotential or hasSecondLevelPotential)
-        #
         
-        #
         if meetsLowGapCriteria and meetsPotentialGreatGapCriteria: #
             if excludeHigherLevelPotentials:
                 if not meetsFirstLevelCriteria:

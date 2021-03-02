@@ -79,7 +79,6 @@ def fetchPronosticsForSecretsDuJeuCom():
     """fetch pronostics currently showed
     """
     elmts = [ elmt for elmt in kPronosticSources["eum"] ]
-    # urls = [el[1] for el in elmts]
     for field, url in elmts:
         print("Fetching url:", url)
         resp = requests.get( url )
@@ -133,10 +132,3 @@ if __name__=="__main__":
     
     today = date.today()
     fetchPronosticsForPronomillionsCom(parsed.n, newestDate=today)
-    
-    # SLO
-
-
-    # FR-LO
-
-

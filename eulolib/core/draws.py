@@ -119,7 +119,7 @@ class Draws(object):
              numberOfDrawsIsMostImportant=False, dateFormat='dmy'):
         """Loads draw results from a file or string and can apply basic filters
 
-        !param numberOfDraws: Number of draws to take in the frame. Especially
+        :param numberOfDraws: Number of draws to take in the frame. Especially
             useful for games with 1 or 2 draws per weeks, since it is harder
             to compute the dates every time by head.
             NOTE: if numberOfDraws is specified, then the toDate will only be
@@ -128,7 +128,7 @@ class Draws(object):
             are available in the draws list.
             PLUS: it will look
 
-        !param numberOfDrawsIsMostImportant: If True, we have to respect the
+        :param numberOfDrawsIsMostImportant: If True, we have to respect the
             number of draws. Hence, if our dataset of draws does not contain
             draws after a certain date, it will take #numberOfDraws draws
             beginning at that boundary of draw dates that are in our dataset.
@@ -373,7 +373,6 @@ class LotteryDraw(object):
 ##############
 
 
-# class LotteryDrawsHistory(object):
 class LotteryDrawsHistory(object):
     """docstring for LotteryDrawsHistory"""
     def __init__(self):
@@ -410,15 +409,14 @@ class LotteryDrawsHistory(object):
 
 
 def get_days_of_draw_map(gameId):
-    # games thatkind of related games
-    # _CUSTOMIZE_WHEN_ADDING_GAME_ : ajouter les jours de tirage de la loterie
+    # _CUSTOMIZE_WHEN_ADDING_GAME_ : add the weekdays when the results of the lottery are published
     drawDaysMap = {
-        'eum': [1, 4], 'sstar': [1, 4],
-        'slo': [2, 5],
-        'sloex': [0, 1, 2, 3, 4, 5, 6],
-        'triomagic': [0, 1, 2, 3, 4, 5], '3magic': [0, 1, 2, 3, 4, 5],
-        'magic4': [0, 1, 2, 3, 4, 5],
-        'banco': [0, 1, 2, 3, 4, 5],
+        'eum': [1, 4], 'sstar': [1, 4], # Euromillion and its Swiss sub-lottery
+        'slo': [2, 5], # Swiss Lotto lottery
+        'sloex': [0, 1, 2, 3, 4, 5, 6], # Swiss Lotto Express lottery
+        'triomagic': [0, 1, 2, 3, 4, 5], '3magic': [0, 1, 2, 3, 4, 5], # Swiss TrioMagic lottery
+        'magic4': [0, 1, 2, 3, 4, 5], # Swiss Magic4 lottery
+        'banco': [0, 1, 2, 3, 4, 5], # Swiss Banco lottery
 
         'ch-slo': [2, 5],
         'ch-sstar': [1, 4],
@@ -427,7 +425,7 @@ def get_days_of_draw_map(gameId):
         'ch-magic4': [0, 1, 2, 3, 4, 5],
         'ch-banco': [0, 1, 2, 3, 4, 5],
 
-        'be-jokerplus': [0, 1, 2, 3, 4, 5, 6]
+        'be-jokerplus': [0, 1, 2, 3, 4, 5, 6], # Belgium JokerPlus lottery 
     }
     return drawDaysMap
 
@@ -467,22 +465,24 @@ def getDaysOfDraw(gameId, fromDate=None, toDate=None, numberOfDraws=None):
     return drawDays
 
 
-# Détermine la date du dernier tirage
 def get_day_of_draw_before(gameId, aDate):
-    """Retourne le jour de tirage qui précède le jour actuel
+    """Get the draw result date that precedes a given date.
+    
+    Helps to get the latest draw date of a given lottery when used with the current date
     """
     minusOneDay = - timedelta(days=1)
     return getNextDayOfDraw(gameId, oneDayDirection=minusOneDay, aDate=aDate)
 
 
 def get_day_of_draw_after(gameId, aDate):
+    """Get the draw result date that follows a given date"""
     oneDay = timedelta(days=1)
     return getNextDayOfDraw(gameId, oneDayDirection=oneDay, aDate=aDate)
 
 
 def get_next_day_of_draw(gameId, oneDayDirection, aDate):
     """
-    !param direction: only use 1 day interval (either positive or negative)
+    :param direction: only use 1 day interval (either positive or negative)
 
     Throws an error if an unregistered game is asked
     """
@@ -519,7 +519,7 @@ def is_day_of_draw(gameId, aDate):
 ########  Utils  ########
 
 def weekday_number(aDate):
-    """Retourne l'index du jour de la semaine où tombe la date spécifiée"""
+    """Get the index of the weekday of the specified day"""
     return calendar.weekday(aDate.year, aDate.month, aDate.day)
 
 

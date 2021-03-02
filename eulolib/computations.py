@@ -348,7 +348,7 @@ class MeasureStorage(object):
 
 def seriesDeValeursDansVecteur(vector, stopAfterSerie=None):
     """
-    !param stopAfterSerie: (optional) from 1 to ... . Putting a value <= 1 is the same as set to 1.
+    :param stopAfterSerie: (optional) from 1 to ... . Putting a value <= 1 is the same as set to 1.
     """
     valuesRepeated = [];
     repetitionLengths = [];

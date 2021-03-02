@@ -100,9 +100,9 @@ def trainTestSplit(feats, targs, trainingProp, columnToPredict=None, scaleFeatur
 
 def bestParametersForModel(modelClass, variableParameter, xtrain, ytrain, xtest, ytest, printIterations=False, returnDataForPlot=False, printDetailedPerformance=True, printFinalScore=True, isRegression=False, **kwargs):
     """
-    !param variableParameters: a dict
-    !param *args: static parameters
-    !param **kwargs: static parameters
+    :param variableParameters: a dict
+    :param *args: static parameters
+    :param **kwargs: static parameters
     """
     modelName = str(modelClass).split("'")[1].split('.')[-1]
     scores = []
@@ -168,9 +168,9 @@ def chooseModels(*args, classifiers=True, **kwargs):
 def chooseClassifierModels(features, targets, trainingProp, stratification=None, scaleFeatures=False, standardizeFeatures=False, chooseOnlyOne=True, columnToPredict=None, scoreTreshold=None, verbose=1):
     """Uses the dataset you provide to train and test several models, and then returns a trained model (or more, or none depending on the parameters).
     
-    !param trainingProp:
-    !param stratificationStrategy: 
-    !param **kwargs: Parameters of the 'trainTestSplit' function
+    :param trainingProp:
+    :param stratificationStrategy: 
+    :param **kwargs: Parameters of the 'trainTestSplit' function
     
     !return: An array of models that have a score higher than the threshold, sorted by decreasing score
     """
@@ -271,9 +271,9 @@ def chooseClassifierModels(features, targets, trainingProp, stratification=None,
 def chooseRegressionModels(features, targets, trainingProp, stratification=None, scaleFeatures=False, standardizeFeatures=False, chooseOnlyOne=True, columnToPredict=None, scoreTreshold=None, verbose=1):
     """Uses the dataset you provide to train and test several models, and then returns a trained model (or more, or none depending on the parameters).
     
-    !param trainingProp:
-    !param stratificationStrategy: 
-    !param **kwargs: Parameters of the 'trainTestSplit' function
+    :param trainingProp:
+    :param stratificationStrategy: 
+    :param **kwargs: Parameters of the 'trainTestSplit' function
     
     !return: An array of models that have a score higher than the threshold, sorted by decreasing score
     """
@@ -449,7 +449,7 @@ class Poll(object):
 def loadFeaturesDFFromCSV(gameId, featuresFilepath, sep="\t", filterIncreaseCapacity=None, filterCurrentUlenValue=None, dropDrawIds=True, indexByDrawIds=False):
     """Loads the dataset for a 1D rule
     
-    !param filterCurrentUlenValue: None or list of 'ulen' symbols
+    :param filterCurrentUlenValue: None or list of 'ulen' symbols
     """
     
     if isinstance(featuresFilepath, str) or isinstance(featuresFilepath, io.StringIO):
@@ -538,7 +538,7 @@ def loadFeaturesDFFromCSV(gameId, featuresFilepath, sep="\t", filterIncreaseCapa
 
 def dropDataFrameColumns(df, columnNames, notPresentOK=True):
     """
-    !param notPresentOK: do not throw error if there is no such column name if the DF
+    :param notPresentOK: do not throw error if there is no such column name if the DF
     """
     columnNames = [columnNames] if isinstance(columnNames, str) else columnNames
     
@@ -559,7 +559,7 @@ def dropDataFrameColumns(df, columnNames, notPresentOK=True):
 
 def predictSymbolsBasedOnULenWillGoUpModel(trainedModel, gameId, symbolPoolIndex, frameLength, dComputedFeatures=None, dropFeaturesNamed=[], drawSets=None, drawIds=None, drawDates=None, drawDateDates=None, csvSep="\t", csvContent=None, drawsFilepath=None, verbose=1, **kwargs):
     """
-    !param symbolPoolIndex: starts from 0. The index of the set of symbol you want to predict
+    :param symbolPoolIndex: starts from 0. The index of the set of symbol you want to predict
     """
     indexOfDrawColumnToPredict = symbolPoolIndex
     
@@ -614,7 +614,7 @@ def predictSymbolsBasedOnULenWillGoUpModel(trainedModel, gameId, symbolPoolIndex
 
 def predictNextSymbolsBasedOnULenWillGoUpModel(trainedModel, gameId, symbolPoolIndex, frameLength, dComputedFeatures=None, dropFeaturesNamed=[], drawSets=None, drawIds=None, drawDates=None, drawDateDates=None, csvSep="\t", csvContent=None, drawsFilepath=None, verbose=1, **kwargs):
     """
-    !param symbolPoolIndex: starts from 0. The index of the set of symbol you want to predict
+    :param symbolPoolIndex: starts from 0. The index of the set of symbol you want to predict
     """
     indexOfDrawColumnToPredict = symbolPoolIndex
     
