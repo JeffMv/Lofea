@@ -307,6 +307,8 @@ def applyStrategySuccessiveGaps(drawsMatrix, universe, frameLength, excludeHighe
     
     frame = drawsMatrix[1:1+frameLength, :] # we look 
     
+    # this octave call uses a private library
+    # TODO : (@JeffMv) release this library as an installable on Github. Or translate the algorithms from Octave to Python
     tmpInds = octave.allIndexesIn( universe, drawsMatrix); 
     tmpInds = octave.concatenateCellColumns(tmpInds, True);
     tmpGapsPerColumns = octave.allGapsFromAllIndexesIn(tmpInds);

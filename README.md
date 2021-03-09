@@ -108,6 +108,24 @@ The columns starting with `feat-...` are columns containing computed features. Y
 
 
 
+### Roadmap / TODOs
+
+
+- Issues
+  - [X] Ensure imports never crash (on Windows, Linux or Mac)
+
+- Documentation
+  - [ ] Translation of comments
+  - [ ] Documentation of key code
+
+- Intuitiveness
+  - [ ] Simplify install process (custom libraries, octave code)
+
+- [ ] Dependencies
+  - [ ] Provide missing private libraries (Octave)
+  - [ ] Replace Octave libraries with python code
+ 
+
 ### Contact / Contributing
 
 *Feal free to open an issue* if you have any questions or to contact me regarding this project.
