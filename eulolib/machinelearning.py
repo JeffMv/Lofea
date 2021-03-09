@@ -20,7 +20,7 @@ except ImportError as err:
     pass
 
 
-from .core import Rule
+from .core import Rule, Draws
 
 
 #######################  Helpers  ############################
