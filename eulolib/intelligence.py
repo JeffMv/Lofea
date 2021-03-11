@@ -312,8 +312,7 @@ def applyStrategySuccessiveGaps(drawsMatrix, universe, frameLength, excludeHighe
     tmpInds = octave.allIndexesIn( universe, drawsMatrix); 
     tmpInds = octave.concatenateCellColumns(tmpInds, True);
     tmpGapsPerColumns = octave.allGapsFromAllIndexesIn(tmpInds);
-    #tmpGaps = octave.concatenateCellColumns(tmpGapsPerColumns) 
-    #print("tmpGapsPerColumns:",tmpGapsPerColumns)
+    #tmpGaps = octave.concatenateCellColumns(tmpGapsPerColumns)
     
     # determine symboles I want to exclude
     #   they are in the recent zone

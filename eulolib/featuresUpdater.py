@@ -65,6 +65,7 @@ import io
 import random
 import string
 import math
+import argparse
 
 from datetime import (timedelta, date, datetime)
 from time import mktime
@@ -1352,79 +1353,19 @@ def mainMakeFeatures(gameId, filepath, saveDirectory=''):
 
 #######################  SHELL and Main  ############################
 
+def arg_parser():
+    """Creates and returns the argument parser"""
+    parser = argparse.ArgumentParser(description="""Pronostics page fetcher
+        """)
+    parser.add_argument('--gameId', help="The lottery game's id")
+    parser.add_argument('--makeFeatures', action="store_true", help="The action to perform")
+    parser.add_argument('--draws', help="The file containing the draws")
+    parser.add_argument('--saveDir', default='', help="The directory to save to")
+    # parser.add_argument('-n', type=int, default=30, help="Fetch the pronostics for the last $N draws (if not already fetched). Default: 50")
+    return parser
 
-# class Shell:
-def shell_isShortArgSet(s):
-    isShortArgList = bool(s[0]=='-') & bool(s[1]!='-')
-    return isShortArgList
 
-def shell_isLongArgument(s):
-    return (s[0:2] == '--')
-
-def shell_hasArgument(args, short=None, expanded=None):
-    for arg in args:
-        if bool(short!=None) & shell_isShortArgSet(arg):
-            # If it contains 'h'
-            if arg.count(short)>0:
-                return True
-        if bool(expanded!=None) & shell_isLongArgument(arg):
-            # if arg is the arg
-            if arg[2:]==expanded:
-                return True
-    return False
-
-def shell_indexOfArgument(args, targetArgExpanded=None, targetArgShort=None):
-    """
-    """
-    # cherche d'abord la version étendue
-    if bool(targetArgExpanded!=None):
-        pattern = '--'+targetArgExpanded
-        indexes = []
-        for i,arg in enumerate(args):
-            if arg.count(pattern)>0:
-                indexes.append(i)
-        if len(indexes)==1:
-            return indexes[0], targetArgExpanded
-        elif len(indexes)>1: # exemple: args== ['--Date', --fromDate', '--toDate'] contiendra 3x 'Date'
-            # Il faut retourner celui qui est le plus correct, sinon le premier valable
-            # /!\ aux cas '--arg ' et '--arg='
-            try:
-                # try to find the exact pattern
-                return args.index(pattern), targetArgExpanded
-            except ValueError:
-                inds = []
-                for i,ind in enumerate(indexes):
-                    # is exact "--arg" or is "--arg=..."
-                    if bool(args[indexes[i]]==pattern) or bool(args[indexes[i]].count(pattern+'=')>0):
-                        # en fait la première condition a déjà été testée dans "return args.index(pattern), ..."
-                        return indexes[i], targetArgExpanded
-    elif bool(targetArgShort!=None):
-        for i,arg in enumerate(args):
-            if arg.count(targetArgShort)>0:
-                return i, targetArgShort
-    return None, None
-
-def shell_valueForKey(args, key, assignmentType):
-    """
-    assignmentType: ' ' or '='
-        Depends on how the arguments are assigned
-    """
-    # index of arg
-    argIndex,shortArg = shell_indexOfArgument(args, targetArgExpanded=key)
-    if argIndex==None:
-        return None
-    elif assignmentType==' ':
-        if len(args) >= argIndex+1:
-            return args[argIndex+1]
-    elif assignmentType=='=':
-        s = args[argIndex][len('--'+key+'='):]
-        if len(s) > 0:
-            return s
-    return None
-
-# def shell_hasValueOfKey
-
-if bool(__name__=='__main__'):
+if __name__ == '__main__':
     infos = """\nScript (Unix) de mise à jour d'un fichier de tirages (pour Euromillions, Swiss-Loto, Loto-Express) depuis l'API de jeux.loro.ch.
     (Supporte l'API d'avant 2017 et la nouvelle API de 2017).
 
@@ -1440,7 +1381,11 @@ if bool(__name__=='__main__'):
     
     NOTE: Cette commande ou ses paramètres pourraient changer par la suite
     """ % (sys.argv[0])
-    helpRequested = shell_hasArgument(sys.argv[1:], short='h', expanded='help')
+    parser = arg_parser()
+    args = parser.parse_args()
+    
+    # helpRequested = shell_hasArgument(sys.argv[1:], short='h', expanded='help')
+    helpRequested = args.help
     cliArgsSeemOk = bool(len(sys.argv)>2) & (not helpRequested)
 
     if helpRequested or not cliArgsSeemOk:
@@ -1453,7 +1398,8 @@ if bool(__name__=='__main__'):
         args = sys.argv[1:]
         gameId = shell_valueForKey(args, 'gameId', '=')
         
-        if shell_hasArgument(sys.argv[1:], expanded='makeFeatures'):
+        # if shell_hasArgument(sys.argv[1:], expanded='makeFeatures'):
+        if args.makeFeatures:
             drawsFilepath = shell_valueForKey(args, 'draws', '=')
             saveDir = shell_valueForKey(args, 'saveDir', '=')
             saveDir = saveDir if saveDir is not None else ''
